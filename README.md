@@ -1,4 +1,4 @@
-# debugging-helpers
+## debugging-helpers
 Small collection of simple functions to make debugging easier. 
 Nothing specular but stuff I don't want to have write repeatedly for each project.
 Doesn't contain any production ready code. 
@@ -12,8 +12,8 @@ While this is not suitable for production, this allows you to quickly check for 
 
 All code in this repository is dual-licensed under either:
 
-- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://apache.org/licenses/LICENSE-2.0)
-- MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or <http://apache.org/licenses/LICENSE-2.0>)
+- MIT license ([LICENSE-MIT](LICENSE-MIT) or <http://opensource.org/licenses/MIT>)
 
 at your option.
 This means you can select the license you prefer!
