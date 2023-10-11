@@ -15,4 +15,6 @@ edition = "2021"
 
 [dependencies]
 colored = "2.0.4"
+
+[dev-dependencies]
 rstest = "0.18.2"
