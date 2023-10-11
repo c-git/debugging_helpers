@@ -16,7 +16,8 @@ pub fn eq_on_debug<T: Debug>(a: &T, b: &T) -> bool {
 
 /// Prints `second` if the debug output is not the same as that of `first`.
 /// Intended usage is to print values in a loop that don't often change.
-/// Returns true if it printed the value.
+/// Returns true if values are the same and nothing was printed.
+/// Otherwise it prints and returns false.
 ///
 /// It uses the pretty printed version of the debug output which often spreads each value over multiple lines.
 /// Color is added to lines that are not equal.
@@ -27,6 +28,8 @@ pub fn print_second_if_different<T: Debug>(first: &T, second: &T) -> bool {
     let first = format!("{first:#?}");
     let second = format!("{second:#?}");
     if first == second {
+        true
+    } else {
         let first: Vec<_> = first.lines().collect();
         let second: Vec<_> = second.lines().collect();
         for (i, second_line) in second.iter().enumerate() {
@@ -42,8 +45,6 @@ pub fn print_second_if_different<T: Debug>(first: &T, second: &T) -> bool {
                 println!("{second_line}");
             }
         }
-        true
-    } else {
         false
     }
 }
