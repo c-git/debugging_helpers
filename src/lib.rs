@@ -23,3 +23,22 @@ pub fn eq_on_debug<T: Debug>(a: &T, b: &T) -> bool {
 pub fn print_second_if_different<T: Debug>(first: &T, second: &T) -> bool {
     unimplemented!()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use rstest::rstest;
+
+    #[rstest]
+    #[case(1, 2, false)]
+    #[case(1, 1, true)]
+    #[case("a", "b", false)]
+    #[case("apple", "apple", true)]
+    fn test_equal<T: Debug>(#[case] a: T, #[case] b: T, #[case] expected: bool) {
+        let actual = eq_on_debug(&a, &b);
+        assert_eq!(actual, expected, "eq_on_debug failed");
+
+        let actual = print_second_if_different(&a, &b);
+        assert_eq!(actual, expected, "print_second_if_different failed");
+    }
+}
