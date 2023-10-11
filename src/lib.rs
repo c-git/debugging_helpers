@@ -24,7 +24,7 @@ pub fn eq_on_debug<T: Debug>(a: &T, b: &T) -> bool {
 /// Expects that number of lines will be equal otherwise
 /// - All unmatched lines are treated as changed
 /// - Unmatched lines in `first` will not show in output, which could lead to no colored lines
-pub fn print_second_if_different<T: Debug>(first: &T, second: &T) -> bool {
+pub fn print_second_if_different<T: Debug>(first: &T, second: &T, color: colored::Color) -> bool {
     let first = format!("{first:#?}");
     let second = format!("{second:#?}");
     if first == second {
@@ -40,7 +40,7 @@ pub fn print_second_if_different<T: Debug>(first: &T, second: &T) -> bool {
             };
 
             if is_diff {
-                println!("{}", second_line.blue());
+                println!("{}", second_line.color(color));
             } else {
                 println!("{second_line}");
             }
