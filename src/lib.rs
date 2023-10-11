@@ -8,7 +8,9 @@ use std::fmt::Debug;
 /// - Requires the debug output to show the part of the type you are interested in
 /// - Requires the debug output to be deterministic and based on the value the type holds
 pub fn eq_on_debug<T: Debug>(a: &T, b: &T) -> bool {
-    unimplemented!()
+    let str_a = format!("{a:?}");
+    let str_b = format!("{b:?}");
+    str_a == str_b
 }
 
 /// Prints `second` if the debug output is not the same as that of `first`.
