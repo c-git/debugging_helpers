@@ -1,6 +1,7 @@
 #![doc = include_str!("../README.md")]
 #![deny(missing_docs, unsafe_code)]
 
+use colored::Colorize;
 use std::fmt::Debug;
 
 /// Useful if the types you are debugging do not implement [`Eq`] but you want to know if they are equal
@@ -23,7 +24,28 @@ pub fn eq_on_debug<T: Debug>(a: &T, b: &T) -> bool {
 /// - All unmatched lines are treated as changed
 /// - Unmatched lines in `first` will not show in output, which could lead to no colored lines
 pub fn print_second_if_different<T: Debug>(first: &T, second: &T) -> bool {
-    unimplemented!()
+    let first = format!("{first:#?}");
+    let second = format!("{second:#?}");
+    if first == second {
+        let first: Vec<_> = first.lines().collect();
+        let second: Vec<_> = second.lines().collect();
+        for (i, second_line) in second.iter().enumerate() {
+            let is_diff = if let Some(first_line) = first.get(i) {
+                first_line != &second[i]
+            } else {
+                true
+            };
+
+            if is_diff {
+                println!("{}", second_line.blue());
+            } else {
+                println!("{second_line}");
+            }
+        }
+        true
+    } else {
+        false
+    }
 }
 
 #[cfg(test)]
