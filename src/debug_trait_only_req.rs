@@ -62,7 +62,7 @@ mod tests {
         let actual = eq_on_debug(&a, &b);
         assert_eq!(actual, expected, "eq_on_debug failed");
 
-        let actual = print_second_if_different(&a, &b);
+        let actual = print_second_if_different(&a, &b, colored::Color::Blue);
         assert_eq!(actual, expected, "print_second_if_different failed");
     }
 }
