@@ -1,7 +1,7 @@
 [package]
 name = "debugging_helpers"
 version = "0.1.0"
-description = "Wrapper around reqwest for use in both native and wasm"
+description = "Trivial functions to make debugging easier"
 keywords = ["debug"]
 repository = "https://github.com/c-git/debugging_helpers"
 documentation = "https://docs.rs/debugging_helpers"
