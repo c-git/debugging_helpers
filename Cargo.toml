@@ -1,11 +1,11 @@
 [package]
 name = "debugging_helpers"
-version = "0.1.0"
+version = "0.2.0"
 description = "Trivial functions to make debugging easier"
 keywords = ["debug"]
 repository = "https://github.com/c-git/debugging_helpers"
 documentation = "https://docs.rs/debugging_helpers"
-categories = ["development-tools::debugging", ""]
+categories = ["development-tools::debugging"]
 authors = ["One <one.bgz1@gmail.com"]
 readme = "README.md"
 license = "MIT OR Apache-2.0"
